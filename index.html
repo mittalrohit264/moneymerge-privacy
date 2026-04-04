@@ -1,26 +1,588 @@
 <!DOCTYPE html>
-<html>
-<head><title>Money Merge Privacy Policy</title></head>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Money Merge | ApexX Studio</title>
+  <style>
+    :root {
+      --green:  #2E7D32;
+      --gold:   #F5A623;
+      --dark:   #0A0A0A;
+      --card:   #141414;
+      --border: #222;
+      --text:   #CCCCCC;
+      --muted:  #666;
+      --white:  #FFFFFF;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--dark);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    /* ── Hero banner ── */
+    .hero {
+      background: linear-gradient(135deg, #0f2027, #1a3a1a, #0f2027);
+      border-bottom: 2px solid var(--green);
+      padding: 48px 24px 36px;
+      text-align: center;
+    }
+
+    .hero-icon {
+      width: 100px;
+      height: 100px;
+      border-radius: 22px;
+      border: 3px solid var(--gold);
+      box-shadow: 0 0 32px rgba(245,166,35,0.4);
+      margin-bottom: 20px;
+      object-fit: cover;
+    }
+
+    .hero-app-name {
+      font-size: 30px;
+      font-weight: 900;
+      color: var(--white);
+      letter-spacing: 1px;
+    }
+
+    .hero-rupee {
+      color: var(--gold);
+    }
+
+    .hero-tagline {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 6px;
+      letter-spacing: 0.5px;
+    }
+
+    .hero-studio {
+      display: inline-block;
+      margin-top: 16px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--green);
+      background: rgba(46,125,50,0.15);
+      border: 1px solid rgba(46,125,50,0.4);
+      border-radius: 20px;
+      padding: 4px 16px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* ── Layout ── */
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 40px 20px 80px;
+    }
+
+    .meta-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 18px;
+      margin-bottom: 36px;
+      font-size: 12px;
+      color: var(--muted);
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .meta-bar span { display: flex; align-items: center; gap: 6px; }
+
+    /* ── Section ── */
+    .section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 28px 24px;
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 14px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 17px;
+      flex-shrink: 0;
+    }
+
+    p { color: var(--text); margin-bottom: 12px; }
+    p:last-child { margin-bottom: 0; }
+
+    ul {
+      padding-left: 0;
+      list-style: none;
+      margin-top: 10px;
+    }
+
+    ul li {
+      padding: 7px 0 7px 20px;
+      position: relative;
+      color: var(--text);
+      border-bottom: 1px solid #1a1a1a;
+      font-size: 14px;
+    }
+
+    ul li:last-child { border-bottom: none; }
+
+    ul li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--green);
+      font-size: 12px;
+      top: 9px;
+    }
+
+    strong { color: var(--white); font-weight: 700; }
+
+    .highlight-box {
+      background: rgba(46,125,50,0.1);
+      border: 1px solid rgba(46,125,50,0.3);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-top: 14px;
+      font-size: 13px;
+      color: #aaa;
+    }
+
+    .highlight-box strong { color: #7EC880; }
+
+    .warning-box {
+      background: rgba(245,166,35,0.08);
+      border: 1px solid rgba(245,166,35,0.25);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-top: 14px;
+      font-size: 13px;
+      color: #aaa;
+    }
+
+    .warning-box strong { color: var(--gold); }
+
+    /* ── Data table ── */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 14px;
+      font-size: 13px;
+    }
+
+    .data-table th {
+      text-align: left;
+      color: var(--muted);
+      font-weight: 700;
+      padding: 8px 12px;
+      background: #1a1a1a;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .data-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid #1a1a1a;
+      color: var(--text);
+      vertical-align: top;
+    }
+
+    .data-table tr:last-child td { border-bottom: none; }
+
+    .tag {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .tag-yes  { background: rgba(46,125,50,0.2);  color: #7EC880; border: 1px solid rgba(46,125,50,0.4); }
+    .tag-no   { background: rgba(255,82,82,0.1);  color: #FF8080; border: 1px solid rgba(255,82,82,0.3); }
+    .tag-ext  { background: rgba(245,166,35,0.1); color: var(--gold); border: 1px solid rgba(245,166,35,0.3); }
+
+    /* ── Contact card ── */
+    .contact-card {
+      background: linear-gradient(135deg, #0d1f0d, #1a2a1a);
+      border: 1px solid rgba(46,125,50,0.4);
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .contact-card .app-logo-sm {
+      font-size: 36px;
+      margin-bottom: 8px;
+    }
+
+    .contact-card h2 {
+      font-size: 20px;
+      font-weight: 900;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+
+    .contact-card .studio-name {
+      font-size: 12px;
+      color: var(--green);
+      margin-bottom: 20px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .contact-email {
+      display: inline-block;
+      background: var(--green);
+      color: white;
+      font-weight: 800;
+      font-size: 14px;
+      padding: 10px 28px;
+      border-radius: 24px;
+      text-decoration: none;
+    }
+
+    .contact-email:hover { opacity: 0.9; }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 12px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+
+    footer strong { color: #444; }
+
+    /* ── Responsive ── */
+    @media (max-width: 480px) {
+      .hero { padding: 36px 16px 28px; }
+      .section { padding: 20px 16px; }
+      .data-table th, .data-table td { padding: 8px; }
+    }
+  </style>
+</head>
 <body>
-<h1>Privacy Policy — Money Merge</h1>
-<p>Last updated: April 2026</p>
 
-<h2>Data We Collect</h2>
-<p>We collect an anonymous User ID (via Firebase) to save your game progress. 
-If you sign in with Google, we also store your Google account name for display purposes.</p>
+  <!-- Hero -->
+  <div class="hero">
+    <img
+      src="icon.png"
+      alt="Money Merge App Icon"
+      class="hero-icon"
+      onerror="this.style.display='none'"
+    />
+    <div class="hero-app-name">Money Merge <span class="hero-rupee">₹</span></div>
+    <div class="hero-tagline">Merge tiles. Reach ₹100 Trillion.</div>
+    <div class="hero-studio">ApexX Studio</div>
+  </div>
 
-<h2>Purchases</h2>
-<p>Purchase history is processed by Google Play and RevenueCat. 
-We do not store payment information.</p>
+  <div class="container">
 
-<h2>Ads</h2>
-<p>This app uses Google AdMob to show advertisements. 
-AdMob may collect device identifiers for ad personalization.</p>
+    <!-- Meta bar -->
+    <div class="meta-bar">
+      <span>📅 Last updated: April 2026</span>
+      <span>📱 Platform: Android</span>
+      <span>🌐 Package: com.moneymerge</span>
+    </div>
 
-<h2>Data Deletion</h2>
-<p>To delete your data, contact us at: support.apexxstudio@gmail.com</p>
+    <!-- Introduction -->
+    <div class="section">
+      <div class="section-title">
+        <div class="section-icon" style="background:#1a2a1a;">📋</div>
+        Introduction
+      </div>
+      <p>
+        This Privacy Policy describes how <strong>ApexX Studio</strong> ("we", "our", or "us") collects,
+        uses, and protects your information when you play <strong>Money Merge</strong> on Android.
+      </p>
+      <p>
+        We are committed to protecting your privacy. Money Merge is designed to work with
+        <strong>minimal data collection</strong> — you can play the entire game without creating an account
+        or sharing any personal information.
+      </p>
+      <div class="highlight-box">
+        <strong>✅ Key principle:</strong> We never sell your data. We never share it with advertisers
+        beyond what Google AdMob requires for ad serving. Your game progress belongs to you.
+      </div>
+    </div>
 
-<h2>Contact</h2>
-<p>support.apexxstudio@gmail.com</p>
+    <!-- Data We Collect -->
+    <div class="section">
+      <div class="section-title">
+        <div class="section-icon" style="background:#1a1a2a;">🗂️</div>
+        Data We Collect
+      </div>
+      <p>Here is a complete breakdown of every piece of data Money Merge touches:</p>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Data Type</th>
+            <th>What It Is</th>
+            <th>Collected by Us</th>
+            <th>Purpose</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Anonymous User ID</strong></td>
+            <td>A random ID assigned by Firebase. Not linked to your name or email.</td>
+            <td><span class="tag tag-yes">Yes</span></td>
+            <td>Save and sync your game progress</td>
+          </tr>
+          <tr>
+            <td><strong>Google Account Name</strong></td>
+            <td>Your display name from Google (e.g. "Rohit"). Only if you sign in.</td>
+            <td><span class="tag tag-yes">Optional</span></td>
+            <td>Show your name on the profile screen</td>
+          </tr>
+          <tr>
+            <td><strong>Game Progress</strong></td>
+            <td>Gems, best score, highest tile, current board, leaderboard.</td>
+            <td><span class="tag tag-yes">Yes</span></td>
+            <td>Sync progress across devices (cloud backup)</td>
+          </tr>
+          <tr>
+            <td><strong>Purchase History</strong></td>
+            <td>Whether you bought gems or Remove Ads. No card details stored by us.</td>
+            <td><span class="tag tag-ext">Google Play / RevenueCat</span></td>
+            <td>Verify and restore purchases</td>
+          </tr>
+          <tr>
+            <td><strong>Device Ad ID</strong></td>
+            <td>Android Advertising ID used by AdMob for ad personalization.</td>
+            <td><span class="tag tag-ext">Google AdMob</span></td>
+            <td>Serve relevant advertisements</td>
+          </tr>
+          <tr>
+            <td><strong>Crash / Performance Data</strong></td>
+            <td>Anonymous crash reports collected by Firebase.</td>
+            <td><span class="tag tag-yes">Yes</span></td>
+            <td>Fix bugs and improve stability</td>
+          </tr>
+          <tr>
+            <td><strong>Payment Details</strong></td>
+            <td>Credit/debit card numbers, UPI IDs, bank info.</td>
+            <td><span class="tag tag-no">Never</span></td>
+            <td>N/A — handled entirely by Google Play</td>
+          </tr>
+          <tr>
+            <td><strong>Location</strong></td>
+            <td>Your physical location or GPS data.</td>
+            <td><span class="tag tag-no">Never</span></td>
+            <td>N/A — we do not request location permission</td>
+          </tr>
+          <tr>
+            <td><strong>Contacts / Camera / Microphone</strong></td>
+            <td>Any sensitive device permissions.</td>
+            <td><span class="tag tag-no">Never</span></td>
+            <td>N/A — the app does not use these permissions</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- How We Use Your Data -->
+    <div class="section">
+      <div class="section-title">
+        <div class="section-icon" style="background:#1a1a2a;">⚙️</div>
+        How We Use Your Data
+      </div>
+      <p>We use the data we collect only for the following purposes:</p>
+      <ul>
+        <li><strong>Saving your game progress</strong> — your gems, score, board state, and best tile are stored locally on your device and optionally synced to Firebase if you sign in with Google.</li>
+        <li><strong>Restoring purchases</strong> — RevenueCat helps us verify your "Remove Ads" entitlement when you reinstall the app or switch devices.</li>
+        <li><strong>Displaying advertisements</strong> — Google AdMob serves banner and interstitial ads to users who have not purchased the Remove Ads pack.</li>
+        <li><strong>Bug fixing and performance</strong> — anonymous crash reports from Firebase help us identify and fix problems.</li>
+        <li><strong>Cloud backup (optional)</strong> — if you sign in with Google, your progress is saved to Firestore so you can restore it on any device.</li>
+      </ul>
+      <div class="warning-box">
+        <strong>⚠️ Sign-in is completely optional.</strong> The game is fully playable without an account.
+        Your progress is always saved locally on your device. Google Sign-in only adds the ability to
+        back up and restore your progress across devices.
+      </div>
+    </div>
+
+    <!-- Third-Party Services -->
+    <div class="section">
+      <div class="section-title">
+        <div class="section-icon" style="background:#1a1a1a;">🔗</div>
+        Third-Party Services
+      </div>
+      <p>
+        Money Merge uses the following third-party services. Each has its own privacy policy
+        and data practices:
+      </p>
+      <ul>
+        <li>
+          <strong>Google Firebase</strong> — anonymous authentication and Firestore cloud database.
+          Firebase stores your game data securely. Only you (identified by your User ID) can read or write your data.
+          <a href="https://firebase.google.com/support/privacy" target="_blank" style="color:#7EC880;"> Firebase Privacy Policy ↗</a>
+        </li>
+        <li>
+          <strong>Google AdMob</strong> — serves banner and interstitial advertisements inside the app
+          for users who have not purchased Remove Ads. AdMob may use your Android Advertising ID
+          to personalize ads.
+          <a href="https://policies.google.com/privacy" target="_blank" style="color:#7EC880;"> Google Privacy Policy ↗</a>
+        </li>
+        <li>
+          <strong>RevenueCat</strong> — manages in-app purchases and entitlements. RevenueCat receives
+          your anonymous User ID and purchase identifiers to verify and restore purchases.
+          <a href="https://www.revenuecat.com/privacy" target="_blank" style="color:#7EC880;"> RevenueCat Privacy Policy ↗</a>
+        </li>
+        <li>
+          <strong>Google Play Billing</strong> — all payment processing for gem packs and Remove Ads
+          is handled entirely by Google Play. We never see or store your payment details.
+          <a href="https://payments.google.com/payments/apis-secure/get_legal_document?ldo=0&ldt=privacynotice" target="_blank" style="color:#7EC880;"> Google Payments Privacy ↗</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- In-App Purchases -->
+    <div class="section">
+      <div class="section-title">
+        <div class="section-icon" style="background:#2a1a0a;">💎</div>
+        In-App Purchases
+      </div>
+      <p>
+        Money Merge offers optional in-app purchases including gem packs (₹95–₹4,700) and
+        a one-time "Remove Ads" purchase. All billing is handled securely by <strong>Google Play</strong>.
+        We do not store, process, or have access to your payment information.
+      </p>
+      <ul>
+        <li><strong>Gem packs</strong> are consumable — once used, they cannot be refunded or restored. This is standard across all mobile games.</li>
+        <li><strong>Remove Ads</strong> is a non-consumable purchase — it can be restored on any device signed into the same Google account using the "Restore Purchases" button in the Store.</li>
+        <li>For refund requests, please contact Google Play directly through the Play Store app.</li>
+      </ul>
+      <div class="highlight-box">
+        <strong>💡 Restore Purchases:</strong> If you bought "Remove Ads" and reinstalled the app,
+        go to Store → Restore Purchases to get it back for free on the same Google account.
+      </div>
+    </div>
+
+    <!-- Data Storage & Security -->
+    <div class="section">
+      <div class="section-title">
+        <div class="section-icon" style="background:#0a1a2a;">🔒</div>
+        Data Storage &amp; Security
+      </div>
+      <p>Your data is stored in the following locations:</p>
+      <ul>
+        <li><strong>On your device (AsyncStorage)</strong> — gems, game board, settings, mute preferences, and leaderboard are stored locally on your Android device.</li>
+        <li><strong>Firebase Firestore (cloud)</strong> — if you sign in with Google, your progress is synced to Firestore and protected by Firebase security rules. Only your User ID can access your data.</li>
+      </ul>
+      <p>
+        We use industry-standard security measures including encrypted connections (HTTPS/TLS)
+        for all data transmitted to Firebase and RevenueCat. We do not store passwords —
+        authentication is handled entirely by Google.
+      </p>
+      <div class="warning-box">
+        <strong>⚠️ Note:</strong> No method of electronic storage or internet transmission is 100%
+        secure. While we use best practices, we cannot guarantee absolute security. We will notify
+        you of any breach as required by applicable law.
+      </div>
+    </div>
+
+    <!-- Children's Privacy -->
+    <div class="section">
+      <div class="section-title">
+        <div class="section-icon" style="background:#1a1a2a;">👶</div>
+        Children's Privacy
+      </div>
+      <p>
+        Money Merge is rated <strong>Everyone</strong> on Google Play and is suitable for all ages.
+        However, the app is not directed specifically at children under 13.
+      </p>
+      <p>
+        We do not knowingly collect personal information from children under 13. The app does not
+        require any personal information to play. If you are a parent or guardian and believe your
+        child has provided us with personal information, please contact us and we will delete it promptly.
+      </p>
+    </div>
+
+    <!-- Your Rights & Data Deletion -->
+    <div class="section">
+      <div class="section-title">
+        <div class="section-icon" style="background:#1a0a0a;">🗑️</div>
+        Your Rights &amp; Data Deletion
+      </div>
+      <p>You have the following rights regarding your data:</p>
+      <ul>
+        <li><strong>Access</strong> — you can view your game data directly in the app (Profile screen shows gems, best score, and best tile).</li>
+        <li><strong>Deletion</strong> — you can request deletion of your cloud data by emailing us at the address below. We will delete your Firestore record within 30 days.</li>
+        <li><strong>Local data</strong> — you can clear all local game data by going to Android Settings → Apps → Money Merge → Clear Data.</li>
+        <li><strong>Ad personalization</strong> — you can opt out of personalized ads by going to Android Settings → Google → Ads → Opt out of Ads Personalization.</li>
+        <li><strong>Sign out</strong> — you can sign out of Google at any time from the Profile screen. Your local progress will remain on the device.</li>
+      </ul>
+    </div>
+
+    <!-- Changes to This Policy -->
+    <div class="section">
+      <div class="section-title">
+        <div class="section-icon" style="background:#1a1a1a;">📝</div>
+        Changes to This Policy
+      </div>
+      <p>
+        We may update this Privacy Policy from time to time. When we do, we will update the
+        "Last updated" date at the top of this page. For significant changes, we will notify you
+        through an in-app notice or a Play Store update description.
+      </p>
+      <p>
+        Continued use of Money Merge after changes are posted constitutes your acceptance of the
+        updated policy. We encourage you to review this page periodically.
+      </p>
+    </div>
+
+    <!-- Contact -->
+    <div class="contact-card">
+      <div class="app-logo-sm">💎</div>
+      <h2>Money Merge</h2>
+      <div class="studio-name">ApexX Studio</div>
+      <p style="font-size:13px; color:#666; margin-bottom:20px;">
+        Have questions about this policy, want your data deleted, or need support?<br />
+        We're happy to help — reach out anytime.
+      </p>
+      <a href="mailto:support.apexxstudio@gmail.com" class="contact-email">
+        📧 support.apexxstudio@gmail.com
+      </a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>© 2026 <strong>ApexX Studio</strong> · Money Merge · All rights reserved</p>
+      <p style="margin-top:6px;">Made with ❤️ in India 🇮🇳</p>
+    </footer>
+
+  </div>
 </body>
 </html>
