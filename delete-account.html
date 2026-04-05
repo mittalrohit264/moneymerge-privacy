@@ -2,80 +2,618 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Delete Account — Money Merge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Delete Account — Money Merge | ApexX Studio</title>
   <style>
+    :root {
+      --green:  #2E7D32;
+      --gold:   #F5A623;
+      --red:    #C62828;
+      --red-soft: #EF5350;
+      --dark:   #0A0A0A;
+      --card:   #141414;
+      --border: #222;
+      --text:   #CCCCCC;
+      --muted:  #666;
+      --white:  #FFFFFF;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
-      background: #0f0f1a;
-      color: #e0e0e0;
-      font-family: 'Segoe UI', sans-serif;
-      max-width: 700px;
-      margin: 0 auto;
-      padding: 40px 20px;
+      background: var(--dark);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       line-height: 1.7;
+      font-size: 15px;
     }
-    h1 { color: #f9c74f; }
-    h2 { color: #90e0ef; margin-top: 32px; }
-    a { color: #f9c74f; }
-    .box {
-      background: #1a1a2e;
-      border: 1px solid #333;
-      border-radius: 10px;
-      padding: 20px 24px;
-      margin-top: 24px;
+
+    /* ── Hero banner ── */
+    .hero {
+      background: linear-gradient(135deg, #0f2027, #1a3a1a, #0f2027);
+      border-bottom: 2px solid var(--green);
+      padding: 48px 24px 36px;
+      text-align: center;
     }
-    .tag {
+
+    .hero-icon {
+      width: 100px;
+      height: 100px;
+      border-radius: 22px;
+      border: 3px solid var(--gold);
+      box-shadow: 0 0 32px rgba(245,166,35,0.4);
+      margin-bottom: 20px;
+      object-fit: cover;
+    }
+
+    .hero-app-name {
+      font-size: 30px;
+      font-weight: 900;
+      color: var(--white);
+      letter-spacing: 1px;
+    }
+
+    .hero-rupee { color: var(--gold); }
+
+    .hero-tagline {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 6px;
+      letter-spacing: 0.5px;
+    }
+
+    .hero-studio {
       display: inline-block;
-      background: #f9c74f22;
-      color: #f9c74f;
+      margin-top: 16px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--green);
+      background: rgba(46,125,50,0.15);
+      border: 1px solid rgba(46,125,50,0.4);
+      border-radius: 20px;
+      padding: 4px 16px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* ── Layout ── */
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 40px 20px 80px;
+    }
+
+    .meta-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 18px;
+      margin-bottom: 36px;
+      font-size: 12px;
+      color: var(--muted);
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .meta-bar span { display: flex; align-items: center; gap: 6px; }
+
+    /* ── Back link ── */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--green);
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      margin-bottom: 28px;
+      padding: 8px 14px;
+      background: rgba(46,125,50,0.08);
+      border: 1px solid rgba(46,125,50,0.25);
+      border-radius: 8px;
+      transition: background 0.2s;
+    }
+    .back-link:hover { background: rgba(46,125,50,0.15); }
+
+    /* ── Page title block ── */
+    .page-title-block {
+      background: rgba(198,40,40,0.07);
+      border: 1px solid rgba(198,40,40,0.25);
+      border-radius: 16px;
+      padding: 28px 28px 24px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    .page-title-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      background: rgba(198,40,40,0.15);
+      border: 1px solid rgba(198,40,40,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      flex-shrink: 0;
+    }
+
+    .page-title-text h1 {
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    .page-title-text p {
+      font-size: 13px;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    /* ── Section ── */
+    .section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 28px 24px;
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 14px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 17px;
+      flex-shrink: 0;
+    }
+
+    p { color: var(--text); margin-bottom: 12px; }
+    p:last-child { margin-bottom: 0; }
+
+    ul {
+      padding-left: 0;
+      list-style: none;
+      margin-top: 10px;
+    }
+
+    ul li {
+      padding: 7px 0 7px 20px;
+      position: relative;
+      color: var(--text);
+      border-bottom: 1px solid #1a1a1a;
+      font-size: 14px;
+    }
+
+    ul li:last-child { border-bottom: none; }
+
+    ul li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--green);
+      font-size: 12px;
+      top: 9px;
+    }
+
+    strong { color: var(--white); font-weight: 700; }
+
+    .highlight-box {
+      background: rgba(46,125,50,0.1);
+      border: 1px solid rgba(46,125,50,0.3);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-top: 14px;
+      font-size: 13px;
+      color: #aaa;
+    }
+    .highlight-box strong { color: #7EC880; }
+
+    .warning-box {
+      background: rgba(245,166,35,0.08);
+      border: 1px solid rgba(245,166,35,0.25);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-top: 14px;
+      font-size: 13px;
+      color: #aaa;
+    }
+    .warning-box strong { color: var(--gold); }
+
+    .danger-box {
+      background: rgba(198,40,40,0.08);
+      border: 1px solid rgba(198,40,40,0.25);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-top: 14px;
+      font-size: 13px;
+      color: #aaa;
+    }
+    .danger-box strong { color: var(--red-soft); }
+
+    /* ── Steps ── */
+    .steps {
+      margin-top: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: #1a1a1a;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    .step-num {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--green);
+      color: white;
+      font-weight: 900;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .step-body { flex: 1; }
+
+    .step-body strong {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    .step-body p {
+      font-size: 13px;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .step-body code {
+      display: inline-block;
+      background: #222;
+      border: 1px solid #333;
       border-radius: 6px;
       padding: 2px 10px;
-      font-size: 0.85em;
-      margin-bottom: 8px;
+      font-size: 12px;
+      color: #7EC880;
+      font-family: 'Courier New', monospace;
+      margin-top: 6px;
+    }
+
+    /* ── Data retention table ── */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 14px;
+      font-size: 13px;
+    }
+
+    .data-table th {
+      text-align: left;
+      color: var(--muted);
+      font-weight: 700;
+      padding: 8px 12px;
+      background: #1a1a1a;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .data-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid #1a1a1a;
+      color: var(--text);
+      vertical-align: top;
+    }
+
+    .data-table tr:last-child td { border-bottom: none; }
+
+    .tag {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .tag-deleted  { background: rgba(198,40,40,0.15);  color: #EF5350; border: 1px solid rgba(198,40,40,0.35); }
+    .tag-kept     { background: rgba(245,166,35,0.1);  color: var(--gold); border: 1px solid rgba(245,166,35,0.3); }
+    .tag-device   { background: rgba(46,125,50,0.15);  color: #7EC880; border: 1px solid rgba(46,125,50,0.35); }
+
+    /* ── Contact card ── */
+    .contact-card {
+      background: linear-gradient(135deg, #0d1f0d, #1a2a1a);
+      border: 1px solid rgba(46,125,50,0.4);
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .contact-card .app-logo-sm { font-size: 36px; margin-bottom: 8px; }
+
+    .contact-card h2 {
+      font-size: 20px;
+      font-weight: 900;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+
+    .contact-card .studio-name {
+      font-size: 12px;
+      color: var(--green);
+      margin-bottom: 20px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .contact-email {
+      display: inline-block;
+      background: var(--green);
+      color: white;
+      font-weight: 800;
+      font-size: 14px;
+      padding: 10px 28px;
+      border-radius: 24px;
+      text-decoration: none;
+    }
+    .contact-email:hover { opacity: 0.9; }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 12px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+
+    footer strong { color: #444; }
+
+    footer a {
+      color: var(--green);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 480px) {
+      .hero { padding: 36px 16px 28px; }
+      .section { padding: 20px 16px; }
+      .page-title-block { flex-direction: column; gap: 12px; }
+      .data-table th, .data-table td { padding: 8px; }
     }
   </style>
 </head>
 <body>
 
-  <h1>🗑️ Delete Your Account</h1>
-  <p><strong>App:</strong> Money Merge: Tile Puzzle Game<br/>
-  <strong>Developer:</strong> ApexX Studio</p>
-
-  <h2>What data we store</h2>
-  <p>When you use Google Sign-in (optional), we store the following data linked to your account:</p>
-  <ul>
-    <li>Firebase User ID (anonymous identifier)</li>
-    <li>Game progress (score, best tile, grid state)</li>
-    <li>Gem balance</li>
-  </ul>
-  <p>We do <strong>not</strong> store your name, email address, or any payment information on our servers.</p>
-
-  <h2>How to request account deletion</h2>
-  <div class="box">
-    <span class="tag">Step 1</span>
-    <p>Send an email to: <a href="mailto:support.apexxstudio@gmail.com">support.apexxstudio@gmail.com</a></p>
-    <span class="tag">Step 2</span>
-    <p>Use subject line: <strong>Account Deletion Request — Money Merge</strong></p>
-    <span class="tag">Step 3</span>
-    <p>Include your registered Google account email so we can locate and delete your data.</p>
+  <!-- Hero -->
+  <div class="hero">
+    <img
+      src="icon.png"
+      alt="Money Merge App Icon"
+      class="hero-icon"
+      onerror="this.style.display='none'"
+    />
+    <div class="hero-app-name">Money Merge <span class="hero-rupee">₹</span></div>
+    <div class="hero-tagline">Merge tiles. Reach ₹1 Quadrillion.</div>
+    <div class="hero-studio">ApexX Studio</div>
   </div>
 
-  <h2>What gets deleted</h2>
-  <ul>
-    <li>✅ Your Firebase account and associated UID</li>
-    <li>✅ All Firestore game data linked to your account</li>
-    <li>✅ Local device data is automatically cleared when you uninstall the app</li>
-  </ul>
+  <div class="container">
 
-  <h2>Timeline</h2>
-  <p>We will process your deletion request within <strong>7 days</strong>.</p>
+    <!-- Meta bar -->
+    <div class="meta-bar">
+      <span>📅 Last updated: April 2026</span>
+      <span>📱 Platform: Android</span>
+      <span>🌐 Package: com.moneymerge</span>
+    </div>
 
-  <h2>In-app purchases</h2>
-  <p>Purchase records are maintained by Google Play and RevenueCat for legal and financial compliance. These are not deleted as part of account deletion, in accordance with applicable law.</p>
+    <!-- Back link -->
+    <a href="index.html" class="back-link">← Back to Privacy Policy</a>
 
-  <p style="margin-top:40px; color:#888; font-size:0.85em;">
-    Last updated: April 2026 · <a href="index.html">← Back to Privacy Policy</a>
-  </p>
+    <!-- Page title -->
+    <div class="page-title-block">
+      <div class="page-title-icon">🗑️</div>
+      <div class="page-title-text">
+        <h1>Delete Account &amp; Data</h1>
+        <p>Request deletion of your Money Merge account and all associated data stored on our servers.</p>
+      </div>
+    </div>
 
+    <!-- What we store -->
+    <div class="section">
+      <div class="section-title">
+        <div class="section-icon" style="background:#1a1a2a;">🗂️</div>
+        What Data We Hold
+      </div>
+      <p>When you use Money Merge — especially with Google Sign-in — the following data may be stored on our servers:</p>
+      <ul>
+        <li><strong>Firebase Anonymous User ID</strong> — a random identifier assigned automatically. Not linked to your name or email.</li>
+        <li><strong>Google Display Name</strong> — only if you chose to sign in with Google (e.g. "Rohit"). Shown on your Profile screen.</li>
+        <li><strong>Game Progress</strong> — your gems balance, best score, highest tile reached, and current board state synced to Firebase Firestore.</li>
+      </ul>
+      <div class="highlight-box">
+        <strong>✅ We never store:</strong> payment details, phone numbers, location, contacts, email addresses, or any sensitive personal information. All purchases are handled entirely by Google Play.
+      </div>
+    </div>
+
+    <!-- How to request deletion -->
+    <div class="section">
+      <div class="section-title">
+        <div class="section-icon" style="background:#1a2a1a;">📧</div>
+        How to Request Deletion
+      </div>
+      <p>Send us a deletion request by email. Follow the three steps below and we will process it within <strong>7 days</strong>.</p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <strong>Send an email to our support address</strong>
+            <p>Open your email app and compose a new message to:</p>
+            <code>support.apexxstudio@gmail.com</code>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <strong>Use the correct subject line</strong>
+            <p>This helps us process your request quickly. Use exactly:</p>
+            <code>Account Deletion Request — Money Merge</code>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <strong>Include your Google account email</strong>
+            <p>So we can locate and permanently delete your Firestore data. If you used anonymous sign-in only, simply mention that in the email.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- What gets deleted -->
+    <div class="section">
+      <div class="section-title">
+        <div class="section-icon" style="background:#1a0a0a;">📋</div>
+        What Gets Deleted vs. Kept
+      </div>
+      <p>Here is a complete breakdown of what happens to each type of data when you request account deletion:</p>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Data</th>
+            <th>Where Stored</th>
+            <th>On Deletion</th>
+            <th>Timeline</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Firebase User ID</strong></td>
+            <td>Firebase Auth</td>
+            <td><span class="tag tag-deleted">Deleted</span></td>
+            <td>Within 7 days</td>
+          </tr>
+          <tr>
+            <td><strong>Game Progress</strong> (score, gems, board)</td>
+            <td>Firebase Firestore</td>
+            <td><span class="tag tag-deleted">Deleted</span></td>
+            <td>Within 7 days</td>
+          </tr>
+          <tr>
+            <td><strong>Google Display Name</strong></td>
+            <td>Firebase Firestore</td>
+            <td><span class="tag tag-deleted">Deleted</span></td>
+            <td>Within 7 days</td>
+          </tr>
+          <tr>
+            <td><strong>Local device data</strong> (gems, settings)</td>
+            <td>Your Android device</td>
+            <td><span class="tag tag-device">Clear manually</span></td>
+            <td>Instantly (see below)</td>
+          </tr>
+          <tr>
+            <td><strong>Purchase history</strong> (gem packs, Remove Ads)</td>
+            <td>Google Play &amp; RevenueCat</td>
+            <td><span class="tag tag-kept">Kept</span></td>
+            <td>Legal / financial requirement</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="warning-box">
+        <strong>⚠️ Purchase records cannot be deleted</strong> — Google Play and RevenueCat retain transaction records for legal and financial compliance. This is standard across all apps on the Play Store and is outside our control.
+      </div>
+    </div>
+
+    <!-- Clear local data -->
+    <div class="section">
+      <div class="section-title">
+        <div class="section-icon" style="background:#1a1a0a;">📱</div>
+        Clearing Local Device Data
+      </div>
+      <p>Your gems, game board, and settings are also stored <strong>locally on your device</strong> (not just in the cloud). To remove this data:</p>
+      <ul>
+        <li>Go to your Android <strong>Settings</strong></li>
+        <li>Tap <strong>Apps</strong> (or Application Manager)</li>
+        <li>Find and tap <strong>Money Merge</strong></li>
+        <li>Tap <strong>Storage</strong> → <strong>Clear Data</strong></li>
+      </ul>
+      <div class="highlight-box">
+        <strong>💡 Tip:</strong> Uninstalling the app also removes all locally stored data automatically.
+      </div>
+    </div>
+
+    <!-- Optional data-only deletion -->
+    <div class="section">
+      <div class="section-title">
+        <div class="section-icon" style="background:#0a1a2a;">🔧</div>
+        Deleting Data Without Deleting Your Account
+      </div>
+      <p>
+        If you'd like to <strong>reset your game progress</strong> without a full account deletion, you can mention this in your email and we'll clear only your Firestore game data while keeping your account active.
+      </p>
+      <p>
+        Alternatively, clearing local data via Android Settings (see above) resets your on-device progress immediately — no email required.
+      </p>
+    </div>
+
+    <!-- Contact -->
+    <div class="contact-card">
+      <div class="app-logo-sm">💎</div>
+      <h2>Money Merge</h2>
+      <div class="studio-name">ApexX Studio</div>
+      <p style="font-size:13px; color:#666; margin-bottom:20px;">
+        Ready to request deletion? We'll confirm receipt and process it within 7 days.
+      </p>
+      <a href="mailto:support.apexxstudio@gmail.com?subject=Account%20Deletion%20Request%20%E2%80%94%20Money%20Merge" class="contact-email">
+        📧 support.apexxstudio@gmail.com
+      </a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>© 2026 <strong>ApexX Studio</strong> · Money Merge · All rights reserved</p>
+      <p style="margin-top:6px;">
+        <a href="index.html">← Privacy Policy</a> &nbsp;·&nbsp; Made with ❤️ in India 🇮🇳
+      </p>
+    </footer>
+
+  </div>
 </body>
 </html>
